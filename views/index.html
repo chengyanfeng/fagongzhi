@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="mdd-index" style="font-size: 40px;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>首页</title>
+    <meta name="charset" content="utf-8">
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="application-name" content="">
+    <title>首页</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="version" content="ddtouch">
+    <meta http-equiv="Cache-Control" content="must-revalidate,no-cache">
+    <link href="./static/css/index.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/mescroll.min.css">
+
+    <link rel="stylesheet" href="./static/css/bootstrap.css">
+    <link rel="stylesheet" href="./static/css/app.css?v=20150605">
+
+    <script type="text/javascript" src="./static/js/index.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    var proxyAssets = "/h5touchassets";
+    var index_url = "";
+</script>
+
+<script type="text/javascript">
+    var appUrlConfig = [{
+        "download_img_url": "http:\/\/\/upload_img\/00528\/111111\/H5-0714.jpg",
+        "android_url": "http:\/\/\/",
+        "iphone_url": "http:\/\/\/cn\/app\/id445573854?mt=8",
+        "app_url": ":\/\/"
+    }, {
+        "download_img_url": "http:\/\/\/upload_img\/00528\/987\/and-0902.png",
+        "android_url": "http:\/\/\/block_mobileClient_download.htm?channel=30153",
+        "iphone_url": "http:\/\/\/us\/app\/id488202082",
+        "app_url": "ddreader:\/\/"
+    }]
+</script>
+<div id="tab0" class="tab active">
+    <header id="search" dd_name="首页搜索区">
+        <div class="dd-logo">
+            <a href="" dd_name="logo跳转"></a>
+        </div>
+        <div class="search_box">
+            <div class="search">
+                <form id="index_search_form" method="get" action="" target="_parent" onsubmit="return submit_search();">
+                    <div class="text_box">
+                        <input id="keyword" name="keyword" type="text" placeholder="请输入您的宝贝" class="keyword text"
+                               onkeydown="" autocomplete="off" style="height:10%">
+                    </div>
+                    <input type="submit" value="" class="submit" dd_name="搜索">
+                    <input type="hidden" value="d256b1d537fe186e53c0444399341c24" name="sid">
+                </form>
+            </div>
+        </div>
+        <div class="header-category"><a href="" dd_name="跳转分类"><em>分类</em></a></div>
+        <div class="search_list"></div>
+    </header>
+
+    <div id="category">
+
+        <ul class="index-nav" dd_name="首页功能区" style="margin:0;border-bottom:solid 1px #e4e4e4">
+            <li><a href="" dd_name="电脑互助"><img class="" src="./static/images/xiazai-0605.png"><span>拼车互助</span></a></li>
+            <li><a href="" dd_name="拼车互助"><img class="" src="./static/images/gouwuche.png"><span>拼车互助</span></a></li>
+            <li><a href="" dd_name="维修互助"><img class="" src="./static/images/wodedangdang-h5.png"><span>维修互助</span></a>
+            </li>
+            <li><a href="" dd_name="二手市场互助"><img class="" src="./static/images/haoshubang.png"><span>二手市场互助</span></a>
+            </li>
+            <li><a href="" dd_name="个人互助"><img class="" src="./static/images/tognshubang-0604.png"><span>个人互助</span></a>
+            </li>
+            <li><a href="" dd_name="捎送互助"><img class="" src="./static/images/9.9.png"><span>推送互助</span></a></li>
+            <li><a href="" dd_name="相互倾述"><img class="" src="./static/images/dianzihsu.png"><span>相互倾述</span></a></li>
+            <li><a href="" dd_name="分类"><img class="" src="./static/images/fenlei.png"><span>更多</span></a></li>
+        </ul>
+    </div>
+    <div id="guss">
+        <span style="">--周边的任务--</span>
+    </div>
+
+    <!--滑动区域-->
+    <div id="mescroll0" class="mescroll active">
+
+        <!--搜索结果-->
+        <ul id="dataList0" class="data-list ">
+        </ul>
+    </div>
+</div>
+
+<div id ="tab1" class="tab active" >
+
+
+</div>
+
+<div id="tab2" class="tab hidden">
+    <div id="mescroll2" class="mescroll hidden">
+    <!--搜索结果-->
+    <ul id="dataList2" class="data-list">
+    </ul>
+</div>
+</div>
+
+<footer class="footer new" style="padding:0">
+    <div class="nav" id="nav">
+        <a style="font-size:0.6rem" class="active" i="0">首页</a>
+        <a i="1">发布</a>
+        <a i="2">我的</a>
+    </div>
+    <section class="copyright">
+        <p>chengyanfeng@1teset</p>
+    </section>
+</footer>
+
+<script src="./static/js/zepto.min.js" type="text/javascript"></script>
+<script src="./static/js/underscore.min.js" type="text/javascript"></script>
+
+<script src="./static/js/fastclick.min.js" type="text/javascript"></script>
+<script src="./static/js/mod_countdown.min.js" type="text/javascript"></script>
+<script src="./static/js/mod_suggest.min.js" type="text/javascript"></script>
+<script src="./static/js/mdd_index.min.js" type="text/javascript"></script>
+<script src="./static/js/js_tracker.js" type="text/javascript"></script>
+<script src="./static/js/mescroll.min.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8" src="./static/js/meindex.js">
+
+</script>
+</body>
+</html>
