@@ -173,6 +173,7 @@ body {
     background-color: #FFFFFF;
     border-bottom: solid 1px #e4e4e4
 }
+
 /*并集，同时包含这两个样式才行*/
 .mescroll.active {
     overflow: scroll;
@@ -184,6 +185,7 @@ body {
     display: none;
 
 }
+
 /*选择后代元素*/
 #guss span {
     height: 1rem;
@@ -231,11 +233,70 @@ body {
     color: #FF6990;
     text-decoration: none;
 }
-.tab.hidden{
-    display:none;
+
+.tab.hidden {
+    display: none;
 }
-.tab.active{
+
+.tab.active {
     display: block;
+}
+
+.upmesssage {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #ccc;
+    padding: 0;
+}
+
+select {
+    font-size: 1.4em;
+    width: 5rem;
+    height: 1.7em;
+    border-radius: 10px;
+    border: 1px solid #c8cccf !important;
+    color: #986655;
+    outline: 0;
+    text-align: center;
+}
+
+#tab1 .keyword {
+    text-align:center;
+    margin: 1rem
+
+}
+.keyword.active {
+    text-align:center;
+    margin: 1rem;
+}
+.keyword.hidden {
+    text-align:center;
+    display: none;
+
+}
+
+.upmesssage input {
+    font-size: 1.0em;
+    width: 3rem;
+    height: 1.7em;
+    border-radius: 10px;
+    border: 1px solid #c8cccf !important;
+    color: #986655;
+    outline: 0;
+    text-align: center;
+}
+
+.tab textarea {
+    font-size: 1.4em;
+    height: 11em;
+    border-radius: 9px;
+    border: 1px solid #c8cccf !important;
+    color: #986655;
+    outline: 0;
+    width: 100%;
+}
+
+.upmesssage span {
+    font-size: 1.0em;
 }
 
 /*搜索结果*/
@@ -272,20 +333,95 @@ body {
     color: #666;
 }
 
+/*下拉刷新回调的提示*/
+.download-tip{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2em;
+    line-height: 2em;
+    font-size: 1em;
+    text-align: center;
+    background-color: rgba(255,130,1,.7);
+    color: white;
+}
+
+#bg {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.7;
+    opacity: .70;
+    filter: alpha(opacity=70);
+}
+#zhuche {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 55%;
+    padding: 8px;
+    border: 8px solid #E8E9F7;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+    text-align: center;
+}
+
+#denglu {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 55%;
+    padding: 8px;
+    border: 8px solid #E8E9F7;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+    text-align: center;
+}
+
+
+#getpassword {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 55%;
+    padding: 8px;
+    border: 8px solid #E8E9F7;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+    text-align: center;
+}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+#showadvice {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 55%;
+    padding: 8px;
+    border: 8px solid #E8E9F7;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+    text-align: center;
+}
 
 
 
