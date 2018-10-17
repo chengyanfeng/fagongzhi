@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="mdd-index" style="font-size: 40px;">
+<html class="mdd-index" style="font-size: 40px;" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>首页</title>
@@ -19,6 +20,8 @@
     <link rel="stylesheet" href="./static/css/common.css">
     <link rel="stylesheet" href="./static/css/mescroll.min.css">
 
+    <link rel="stylesheet" href="./static/css/default.css">
+    <link rel="stylesheet" href="./static/css/default.time.css">
     <link rel="stylesheet" href="./static/css/bootstrap.css">
     <link rel="stylesheet" href="./static/css/app.css?v=20150605">
 
@@ -43,41 +46,45 @@
         "app_url": "ddreader:\/\/"
     }]
 </script>
+
 <div id="tab0" class="tab active">
+
     <header id="search" dd_name="首页搜索区">
         <div class="dd-logo">
             <a href="" dd_name="logo跳转"></a>
         </div>
         <div class="search_box">
             <div class="search">
-                <form id="index_search_form" method="get" action="" target="_parent" onsubmit="return submit_search();">
-                    <div class="text_box">
-                        <input id="keyword" name="keyword" type="text" placeholder="请输入您的宝贝" class="keyword text"
-                               onkeydown="" autocomplete="off" style="height:10%">
-                    </div>
-                    <input type="submit" value="" class="submit" dd_name="搜索">
-                    <input type="hidden" value="d256b1d537fe186e53c0444399341c24" name="sid">
-                </form>
+                <div class="text_box">
+                    <input id="keyword" name="keyword" type="text" placeholder="请输入关键词" class="keyword text"
+                           style="height:10%;display: inline-block !important;width: 93%">
+                    <div  id="keywordclear" style="display: none" onclick="clearKey()">x</div>
+                </div>
+                <input type="button" class="submit" dd_name="搜索" id="search">
+                <input type="hidden" value="d256b1d537fe186e53c0444399341c24" name="sid">
             </div>
         </div>
-        <div class="header-category"><a href="" dd_name="跳转分类"><em>分类</em></a></div>
+        <div class="header-category"><img style=" width: 22%;height: 29%;border-bottom: solid 1px #e4e4e4;"
+                                          src="./static/images/timg.jpg"><span id="location"
+                                                                               style="line-height: 4em;text-align: center;font-size: 1em;border-bottom:solid 1px #e4e4e4;">全国</span>
+        </div>
         <div class="search_list"></div>
     </header>
 
     <div id="category">
 
         <ul class="index-nav" dd_name="首页功能区" style="margin:0;border-bottom:solid 1px #e4e4e4">
-            <li><a href="" dd_name="电脑互助"><img class="" src="./static/images/xiazai-0605.png"><span>拼车互助</span></a></li>
-            <li><a href="" dd_name="拼车互助"><img class="" src="./static/images/gouwuche.png"><span>拼车互助</span></a></li>
-            <li><a href="" dd_name="维修互助"><img class="" src="./static/images/wodedangdang-h5.png"><span>维修互助</span></a>
+            <li><a dd_name="0"><img class="" src="./static/images/gouwuche.png"><span>拼车互助</span></a></li>
+            <li><a dd_name="1"><img class="" src="./static/images/xiazai-0605.png"><span>维修互助</span></a></li>
+            <li><a dd_name="2"><img class="" src="./static/images/wodedangdang-h5.png"><span>稍送互助</span></a>
             </li>
-            <li><a href="" dd_name="二手市场互助"><img class="" src="./static/images/haoshubang.png"><span>二手市场互助</span></a>
+            <li><a dd_name="3"><img class="" src="./static/images/haoshubang.png"><span>借用信息互助</span></a>
             </li>
-            <li><a href="" dd_name="个人互助"><img class="" src="./static/images/tognshubang-0604.png"><span>个人互助</span></a>
+            <li><a dd_name="4"><img class="" src="./static/images/tognshubang-0604.png"><span>二手物品互助</span></a>
             </li>
-            <li><a href="" dd_name="捎送互助"><img class="" src="./static/images/9.9.png"><span>推送互助</span></a></li>
-            <li><a href="" dd_name="相互倾述"><img class="" src="./static/images/dianzihsu.png"><span>相互倾述</span></a></li>
-            <li><a href="" dd_name="分类"><img class="" src="./static/images/fenlei.png"><span>更多</span></a></li>
+            <li><a dd_name="5"><img class="" src="./static/images/9.9.png"><span>帮助互助</span></a></li>
+            <li><a dd_name="6"><img class="" src="./static/images/dianzihsu.png"><span>临时互助</span></a></li>
+            <li><a dd_name="-1"><img class="" src="./static/images/fenlei.png"><span>全部信息</span></a></li>
         </ul>
     </div>
     <div id="guss">
@@ -85,49 +92,229 @@
     </div>
 
     <!--滑动区域-->
-    <div id="mescroll0" class="mescroll active">
+    <div id="mescroll0" class="mescroll active" style="position: relative;">
+        <p id="downloadTip" class="download-tip" style="display: block;opacity:0;position:absolute;left: 0;width: 100%;height: 2em;line-height: 2em;font-size: 1em;
+    text-align: center;
+    background-color: rgba(255,130,1,.7);
+    transition:2s; /*过渡时间*/
+　　-webkit-transition: 2s; /*老版本火狐 浏览器*/
+　　-moz-transition: .6s; /* Firefox 4 */
+　　-o-transition: 2s; /*Safari　Chrome 浏览器*/
+    color: white;">条新信息</p>
 
         <!--搜索结果-->
-        <ul id="dataList0" class="data-list ">
+        <ul id="dataList0" class="data-list">
         </ul>
     </div>
 </div>
 
-<div id ="tab1" class="tab active" >
+<div id="tab1" class="tab hidden">
+    <header id="tab1header" dd_name="发布信息">
+        <div><h1 style="font-size:1.5em;margin:0;text-align:center;line-height: 2.2rem" >信息发布</h1></div>
+    </header>
+    <div id="mescroll1" class="mescroll hidden upmesssage" style="height: 25rem !important;">
+        <div style="">
+            <span style="margin-left: 0.2rem">类别:</span>
+            <select id="select" onchange="selectDiv()" style="text-align-last:center">
+                <option value="0">拼车信息</option>
+                <option value="1">维修信息</option>
+                <option value="2">稍送物品信息</option>
+                <option value="3">借用信息</option>
+                <option value="4">二手物品信息</option>
+                <option value="5">帮助信息</option>
+                <option value="6">临时信息</option>
+
+            </select>
+        </div>
+        <div class="keyword active ">
+            <input placeholder="出发地" id="local" class="needclear"></input>
+            <span>------></span>
+            <input placeholder="目的地" id="destion" class="needclear"> </input>
+        </div>
+        <div class="keyword hidden">
+            <input placeholder="维修物品名称" style="width: 8em" class="needclear"></input>
+            <div><span>关 键 词</span></div>
+        </div>
+        <div class="keyword hidden">
+            <input placeholder="稍送物品名称" style="width: 8em"  class="needclear"></input>
+            <div><span>关 键 词</span></div>
+        </div>
+        <div class="keyword hidden">
+            <input placeholder="借用物品名称" class="needclear" style="width: 8em"></input>
+            <div><span>关 键 词</span></div>
+        </div>
+        <div class="keyword hidden">
+            <input placeholder="二手物品名称" class="needclear" style="width: 8em"></input>
+            <div><span>关 键 词</span></div>
+        </div>
+        <div class="keyword hidden">
+            <input placeholder="需要帮助的关键词" class="needclear" style="width: 8em"></input>
+            <div><span>关 键 词</span></div>
+        </div>
+        <div class="keyword hidden">
+            <input placeholder="临时信息" class="needclear" style="width: 8em"></input>
+            <div><span>关 键 词</span></div>
+        </div>
+        <div style="text-align: center;">
+            <section class="section">
+                <form>
+                    <fieldset>
+                        <input id="input_from" class="datepicker needclear " type="time" name="time" autofocuss
+                               placeholder="请选择信息持续的小时" style="width:8rem"  >
+
+                    </fieldset>
+                </form>
+            </section>
+
+            <span>信息将在此小时后失效</span>
+        </div>
+        <div style="text-align: center;margin-top:1rem">
+            <input placeholder="感谢红包" id="thankpackage" class="needclear"></input>
+        </div>
+        <div>
+            <span style="margin-left: 0.2rem">详细信息:</span>
+            <textarea placeholder="限制请输入具体信息,联系电话...（限制200字）" style="margin:0.1rem " id="message" class="needclear" ></textarea>
+
+        </div>
+        <div style="text-align: center;margin-bottom: 1rem">
+            <input type="submit" value="发布信息" onclick="UpMessage()">
+        </div>
+    </div>
 
 
 </div>
 
 <div id="tab2" class="tab hidden">
-    <div id="mescroll2" class="mescroll hidden">
-    <!--搜索结果-->
-    <ul id="dataList2" class="data-list">
-    </ul>
+    <header id="tab2header" dd_name="我">
+        <div><h1 style="font-size:1.5em;margin:0;text-align:center;line-height:2.2em">我</h1></div>
+    </header>
+    <div style="height:4em;float:right;background-color:#ffffff;border-bottom:solid 1px #e4e4e4;font-size:1.3em;vertical-align: middle;padding:0.4em;width: 50%;line-height:4em;text-align: center">
+        <span   id="register" onclick="showdiv()">注册</span>
+    <span   id="quit" onclick="quit()" style="display: none">退出</span></div>
+
+    <div style="height:4em;background-color:#ffffff;border-bottom:solid 1px #e4e4e4;border-right:solid 1px #e4e4e4;font-size:1.3em;vertical-align: middle;padding:0.4em;width: 50%;line-height:4em;text-align: center">
+        <span id="land" onclick="showdenglu()">登陆</span>
+<span   id="welcome" onclick="" style="display: none">欢迎</span></div>
+    <div style="background-color:#ffffff;border-bottom:solid 1px #e4e4e4;font-size:1.3em;vertical-align: middle;padding:0.4em" onclick="showadvice()">
+        <span>提出您的建议</span></div>
+    <div style="background-color:#ffffff;border-bottom:solid 1px #e4e4e4;font-size:1.3em;vertical-align: middle;padding:0.4em" onclick="sharefriend()">
+        <span>分享给朋友</span></div>
+    <div style="background-color:#ffffff;border-bottom:solid 1px #e4e4e4;font-size:1.3em;vertical-align: middle;padding:0.4em" onclick="downapp()">
+        <span>下载App</span></div>
+    <div style="background-color:#ffffff;border-bottom:solid 1px #e4e4e4;font-size:1.3em;vertical-align: middle;padding:0.4em">
+        <span>发布的历史信息</span></div>
+    <div id="mescroll2" style="height: 18rem !important;" class="mescroll hidden" >
+        <!--搜索结果-->
+        <ul id="dataList2" class="data-list">
+        </ul>
+    </div>
 </div>
+<div id="bg"></div>
+<div id="zhuche" class="upmesssage">
+    <input id="btnclose" type="button" value="关闭" onclick="hidediv();" style="width: 2.8em;display: block"/>
+    <input id="renumber" style="margin-top:2rem;width: 7rem;display: block;margin:1rem auto" placeholder="请输入电话号码" class="needclear" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" ></input>
+    <input id="repassword" style="margin-top:1rem;width: 7rem;display: block;margin: 1rem auto" placeholder="请输入密码" type="password" class="needclear" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)"></input>
+    <input id="code"  class="needclear"style="margin-top:1rem;width: 7rem;display: none;margin: 1rem auto;margin-top: 0rem" placeholder="请输入验证码" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)"></input>
+    <input id="identifying" type="button" style="margin-top:1rem;width: 7rem;display: block;margin:1rem auto;margin-top: 0rem" value="点击发送验证码" onclick="identifying('renumber','identifying','code')" ></input>
+    <input id="register" type="button" style="margin-top:4rem;width: 6rem;display: block;margin:1rem auto" value="注册" onclick="register()"></input>
+
+</div>
+<div id="denglu" class="upmesssage">
+    <input id="btnclose" type="button" value="关闭" onclick="hidediv();" style="width: 2.8em;display: block"/>
+    <input id="number" style="margin-top:2rem;width: 7rem;display: block;margin:1rem auto" placeholder="请输入电话号码" class="needclear" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" ></input>
+    <input id="password" style="margin-top:1rem;width: 7rem;display: block;margin:1rem auto;margin-bottom: 0.1rem" placeholder="请输入密码" type="password" class="needclear" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" ></input>
+                <a style="font-size: 0.5em;display: block;text-decoration-line:underline" onclick="showgetpassword()">忘记密码？</a>
+    <input id="lad" type="button" style="margin-top:4rem;width: 6rem;display: block;margin:1rem auto" value="登陆" onclick="Login()"></input>
+
 </div>
 
-<footer class="footer new" style="padding:0">
-    <div class="nav" id="nav">
+<div id="getpassword" class="upmesssage">
+    <input id="btnclose" type="button" value="关闭" onclick="hidediv();" style="width: 2.8em;display: block"/>
+    <input id="getnumber" style="margin-top:2rem;width: 7rem;display: block;margin:1rem auto" placeholder="请输入电话号码" class="needclear" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)"></input>
+    <input id="getrepassword" style="margin-top:1rem;width: 7rem;display: block;margin:1rem auto" placeholder="重置密码" type="password" class="needclear" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)"></input>
+    <input id="getcode" style="margin-top:1rem;width: 7rem;display: none;margin:1rem auto;margin-top: 0rem"  class="needclear" placeholder="请输入验证码" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)"></input>
+    <input id="getidentifying" type="button" style="margin-top:1rem;width: 7rem;display: block;margin:1rem auto;margin-top: 0rem" value="点击发送验证码" onclick="identifying('getnumber','getidentifying','getcode')" ></input>
+    <input id="getregister" type="button" style="margin-top:4rem;width: 6rem;display: block;margin:1rem auto" value="确定" onclick="setPassword()"></input>
+
+</div>
+<div id="showadvice" class="upmesssage" >
+    <input id="btnclose" type="button" value="关闭" onclick="hidediv();" style="width: 2.8em;display: block"/>
+    <textarea id="upadvice" class="needclear" style="margin-top:2rem;width: 90%;height:60%;display: block;margin:1rem auto" placeholder="请输入您的意见（限制100字）" class="needclear"></textarea>
+    <input id="sendadvice" type="button" style="margin-top:4rem;width: 6rem;display: block;margin:1rem auto" value="发送" onclick="sendAdvice()"></input>
+
+</div>
+<div id="sharefriend" class="upmesssage" >
+    <input id="btnclose" type="button" value="关闭" onclick="hidediv();" style="width: 2.8em;display: block"/>
+    <img src="./static/download/downloadurl.png" style="width:4rem;height: 4rem">
+    <span class="friend">(建议截屏发给朋友)</span >
+    <input class="friend" style="margin: 2rem  auto 0 auto;width:12rem" id="copyUrllianjie" value="https://chengyanfeng.natapp4.cc/index" />
+    <span style="display: block">(手机移动链接支持PC,安卓,os)</span>
+    <input type="button"  id="copybutton" onclick="myCopy(1)" value="复制链接" style="margin: 0 auto">
+</div>
+<div id="downapp" class="upmesssage" >
+    <input id="btnclose" type="button" value="关闭" onclick="hidediv();" style="width: 2.8em;display: block"/>
+    <img src="./static/download/downloadapp.png" style="width:4rem;height: 4rem">
+    <span class="friend">(建议用手机QQ扫描,或者截屏发给朋友)</span >
+
+    <span class="friend">二维码目前仅支持安卓手机</span >
+
+    <input class="friend" style="margin: 2rem  auto 0 auto;width:12rem" id="copyUrlApp" value="https://chengyanfeng.natapp4.cc/static/download/app.apk" />
+    <span style="display: block">(手机移动链接支持PC,安卓,os)</span>
+    <input type="button"  id="copybutton" onclick="myCopy(2)" value="复制链接" style="margin: 0 auto">
+</div>
+<footer class="footer new" style="padding:0;position: fixed;bottom: 1px;border-top:solid 1px #e4e4e4; ">
+    <div class="nav" id="nav" >
         <a style="font-size:0.6rem" class="active" i="0">首页</a>
-        <a i="1">发布</a>
-        <a i="2">我的</a>
+        <a i="1" >发布</a>
+        <a i="2" >我的</a>
     </div>
     <section class="copyright">
         <p>chengyanfeng@1teset</p>
     </section>
 </footer>
-
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="./static/js/zepto.min.js" type="text/javascript"></script>
-<script src="./static/js/underscore.min.js" type="text/javascript"></script>
+{{/* 时间插件*/}}
+<script src="./static/js/picker.js" type="text/javascript"></script>
+<script src="./static/js/picker.time.js" type="text/javascript"></script>
 
+{{/* 对我来说没用*/}}
+{{/*<script src="./static/js/legacy.js" type="text/javascript"></script>*/}}
+{{/*<script src="./static/js/underscore.min.js" type="text/javascript"></script>*/}}
+
+{{/*<script src="./static/js/mod_countdown.min.js" type="text/javascript"></script>*/}}
+{{/*<script src="./static/js/mod_suggest.min.js" type="text/javascript"></script>*/}}
+{{/* 这个主要对布局有影响*/}}
+{{/***这个防止快速点击的，有用的***/}}
 <script src="./static/js/fastclick.min.js" type="text/javascript"></script>
-<script src="./static/js/mod_countdown.min.js" type="text/javascript"></script>
-<script src="./static/js/mod_suggest.min.js" type="text/javascript"></script>
 <script src="./static/js/mdd_index.min.js" type="text/javascript"></script>
-<script src="./static/js/js_tracker.js" type="text/javascript"></script>
+{{/***异常数据采集***/}}
+{{/*<script src="./static/js/js_tracker.js" type="text/javascript"></script>*/}}
 <script src="./static/js/mescroll.min.js" type="text/javascript"></script>
-<script type="text/javascript" charset="utf-8" src="./static/js/meindex.js">
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.3&key=3df877a70685dac5ecb3afa375d4c305"></script>
+<script type="text/javascript" charset="utf-8" src="./static/js/meindex.js"></script>
+<script type="text/javascript">
+    getjingweidu()
 
 </script>
+
+
+<script>
+
+
+
+</script>
+<script>
+    // H5 plus事件处理
+    function plusReady(){
+        alert( "IMSI: " + plus.device.imsi );
+    }
+    if(window.plus){
+        plusReady();
+    }else{
+        document.addEventListener("plusready",plusReady,false);
+    }
+</script>
+
 </body>
 </html>
